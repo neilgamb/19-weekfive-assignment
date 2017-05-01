@@ -20,6 +20,9 @@ test ('map', function (t){
     function square(x) {return x * x;}
     t.deepEqual(fn.map([2, 4, 5], square), [4, 16, 25]);
 
+    function plusTwo(x) {return x + 2;}
+    t.deepEqual(fn.map([2, 4, 5], plusTwo), [4, 6, 7]);
+
     function hello(name) {return "Hello, "+name;}
     t.deepEqual(fn.map(['John', 'Tim', 'Julie'], hello), ['Hello, John', 'Hello, Tim', 'Hello, Julie']);
 });
@@ -28,6 +31,12 @@ test ('map', function (t){
 test ('filter', function (t){
     function even(x) {return x % 2 === 0;}
     t.deepEqual(fn.filter([1, 2, 3], even), [2]);
+
+    function odd(x) {return x % 2 === 1;}
+    t.deepEqual(fn.filter([1, 2, 3], odd), [1, 3]);
+
+    function divByTen(x) {return x % 10 === 0;}
+    t.deepEqual(fn.filter([10, 120, 34, 50], divByTen), [10, 120, 50]);
 });
 
 // ===== fn 4 | reduce =======================================
