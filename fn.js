@@ -66,7 +66,7 @@ function reduce(array, func, start){
     let previous = start;
 
     for(let i = 0; i < array.length; i++){
-        func(previous, array[i]);
+        // func(previous, array[i]);
         previous = func(previous, array[i]);
     }
 
@@ -131,7 +131,6 @@ for (let i = 0; i < array.length; i++){
     }
 
 }
-    return false;
-
+    return undefined;
 
 }

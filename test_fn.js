@@ -37,6 +37,9 @@ test ('filter', function (t){
 
     function divByTen(x) {return x % 10 === 0;}
     t.deepEqual(fn.filter([10, 120, 34, 50], divByTen), [10, 120, 50]);
+
+    function startsWithS(word) {return (word[0] === 's' || word[0] === 'S')};
+    t.deepEqual(fn.filter(['Sam', 'Steve', 'John', 'Sandra'], startsWithS), ['Sam', 'Steve', 'Sandra']);
 });
 
 // ===== fn 4 | reduce =======================================
@@ -74,6 +77,11 @@ test ('some', function (t){
 // ===== fn 7 | find =======================================
 test ('find', function (t){
     function startWithS(name) {return (name[0] === 's' || name[0] === 'S')}
-
     t.deepEqual(fn.find(['Peg', 'Tara', 'Smith', 'Samsonite', 'Kip'], startWithS), 'Smith');
+
+    function startWithS(name) {return (name[0] === 's' || name[0] === 'S')}
+    t.deepEqual(fn.find(['Peg', 'Tara', 'Rick', 'Kip'], startWithS), undefined);
+
+    function even(x) {return x % 2 === 0;}
+    t.deepEqual(fn.find([3, 7, 9, 45, 10, 4], even), 10);
 });
